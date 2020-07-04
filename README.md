@@ -69,7 +69,7 @@ Application validates input:
 <img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/ValidationMsg.PNG">
 </p>
 
-Country Add Success Message:
+Country add success message:
 
 <p align="center">
 <img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/SuccessAddMsg.PNG">
