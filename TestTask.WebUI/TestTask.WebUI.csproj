@@ -4,6 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Studying\TestTasks\CRMGuru\TestTask.WebUI\XmlDocumentation\TestTask.WebUI.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.35" />
     <PackageReference Include="FontAwesome" Version="4.7.0" />
@@ -13,6 +17,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TestTask.Domain\TestTask.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="XmlDocumentation\" />
   </ItemGroup>
 
 </Project>

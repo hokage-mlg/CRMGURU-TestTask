@@ -141,3 +141,5 @@ D:\Studying\TestTasks\CRMGuru\TestTask.WebUI\obj\Debug\netcoreapp3.1\Razor\Views
 D:\Studying\TestTasks\CRMGuru\TestTask.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\ShowAll.cshtml.g.cs
 D:\Studying\TestTasks\CRMGuru\TestTask.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\CountryInfo.cshtml.g.cs
 D:\Studying\TestTasks\CRMGuru\TestTask.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Home\AddCountry.cshtml.g.cs
+D:\Studying\TestTasks\CRMGuru\TestTask.WebUI\bin\Debug\netcoreapp3.1\TestTask.WebUI.xml
+D:\Studying\TestTasks\CRMGuru\TestTask.WebUI\bin\Debug\netcoreapp3.1\TestTask.Domain.xml

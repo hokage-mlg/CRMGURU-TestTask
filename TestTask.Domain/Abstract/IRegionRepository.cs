@@ -33,7 +33,7 @@ namespace TestTask.Domain.Abstract
         /// <summary>
         /// Checks for the presence of a region
         /// </summary>
-        /// <param name="regionName"> Region name to check </returns>
+        /// <param name="regionName"> Region name to check </param>
         /// <returns> "EXIST" - if the region exists and "NOT EXIST" otherwise </returns>
         string CheckExistRegion(string regionName);
     }

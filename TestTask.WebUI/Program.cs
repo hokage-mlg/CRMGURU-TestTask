@@ -3,6 +3,9 @@ using Microsoft.Extensions.Hosting;
 
 namespace TestTask.WebUI
 {
+    /// <summary>
+    /// Initializes and starts the host with the application.
+    /// </summary>
     public class Program
     {
         /// <summary>

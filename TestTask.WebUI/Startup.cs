@@ -9,6 +9,9 @@ using TestTask.Domain.Concrete;
 
 namespace TestTask.WebUI
 {
+    /// <summary>
+    /// The application starts with it. That is, this is the entry point to the application.
+    /// </summary>
     public class Startup
     {
         /// <summary>
@@ -36,7 +39,11 @@ namespace TestTask.WebUI
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app"> Interface of application builder </param>
+        /// <param name="env"> Interface of web host environment </param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

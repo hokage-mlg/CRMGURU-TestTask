@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TestTask.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:TestTask.Domain.Abstract.ICityRepository">
+            <summary>
+            Interface for city repository
+            </summary>
+        </member>
+        <member name="M:TestTask.Domain.Abstract.ICityRepository.GetCities">
+            <summary>
+            Retrieves a list of cities
+            </summary>
+            <returns> List of cities </returns>       
+        </member>
+        <member name="M:TestTask.Domain.Abstract.ICityRepository.GetCityById(System.Int32)">
+            <summary>
+            Gets the city by its identifier
+            </summary>
+            <param name="cityId"> Id of the desired city </param>
+            <returns> Searched city </returns>           
+        </member>
+        <member name="M:TestTask.Domain.Abstract.ICityRepository.GetCityByName(System.String)">
+            <summary>
+            Gets the city by its name
+            </summary>
+            <param name="cityName"> Name of the desired city </param>
+            <returns> Searched city </returns>    
+        </member>
+        <member name="M:TestTask.Domain.Abstract.ICityRepository.AddCity(TestTask.Domain.Entities.City)">
+            <summary>
+            Adds a city
+            </summary>
+            <param name="city"> City to add </param> 
+        </member>
+        <member name="M:TestTask.Domain.Abstract.ICityRepository.CheckExistCity(System.String)">
+            <summary>
+            Checks for the presence of a city
+            </summary>
+            <param name="cityName"> City name to check </param>
+            <returns> "EXIST" - if the city exists and "NOT EXIST" otherwise </returns>
+        </member>
+        <member name="T:TestTask.Domain.Abstract.ICountryRepository">
+            <summary>
+            Interface for country repository
+            </summary>
+        </member>
+        <member name="M:TestTask.Domain.Abstract.ICountryRepository.GetCountries">
+            <summary>
+            Retrieves a list of countries
+            </summary>
+            <returns> List of countries </returns> 
+        </member>
+        <member name="M:TestTask.Domain.Abstract.ICountryRepository.GetCountryByName(System.String)">
+            <summary>
+            Gets the country by its name
+            </summary>
+            <param name="countryName"> Name of the desired country </param>
+            <returns> Searched country </returns>   
+        </member>
+        <member name="M:TestTask.Domain.Abstract.ICountryRepository.AddCountry(TestTask.Domain.Entities.Country,System.String,System.String)">
+            <summary>
+            Adds a country
+            </summary>
+            <param name="country"> Country to add </param>
+            <param name="capitalName"> Capital of this country </param>
+            <param name="regionName"> Region in which this country is located </param>
+        </member>
+        <member name="M:TestTask.Domain.Abstract.ICountryRepository.UpdateCountry(TestTask.Domain.Entities.Country,System.String,System.String)">
+            <summary>
+            Updates country info
+            </summary>
+            <param name="country"> Country to update </param>
+            <param name="capitalName"> Capital of this country </param>
+            <param name="regionName"> Region in which this country is located  </param>
+        </member>
+        <member name="M:TestTask.Domain.Abstract.ICountryRepository.CheckExistCountry(System.String)">
+            <summary>
+            Checks for the presence of a country
+            </summary>
+            <param name="countryCode"> Country name to check </param>
+            <returns> "EXIST" - if the country exists and "NOT EXIST" otherwise </returns> 
+        </member>
+        <member name="T:TestTask.Domain.Abstract.IRegionRepository">
+            <summary>
+            Interface for region repository
+            </summary>
+        </member>
+        <member name="M:TestTask.Domain.Abstract.IRegionRepository.GetRegions">
+            <summary>
+            Retrieves a list of regions
+            </summary>
+            <returns> List of regions </returns>
+        </member>
+        <member name="M:TestTask.Domain.Abstract.IRegionRepository.GetRegionById(System.Int32)">
+            <summary>
+            Gets the region by its identifier
+            </summary>
+            <param name="regionId"> Id of the desired region </param>
+            <returns> Searched region </returns>   
+        </member>
+        <member name="M:TestTask.Domain.Abstract.IRegionRepository.GetRegionByName(System.String)">
+            <summary>
+            Gets the region by its name
+            </summary>
+            <param name="regionName"> Name of the desired region </param>
+            <returns> Searched region </returns>    
+        </member>
+        <member name="M:TestTask.Domain.Abstract.IRegionRepository.AddRegion(TestTask.Domain.Entities.Region)">
+            <summary>
+            Adds a region
+            </summary>
+            <param name="region"> Region to add </param>
+        </member>
+        <member name="M:TestTask.Domain.Abstract.IRegionRepository.CheckExistRegion(System.String)">
+            <summary>
+            Checks for the presence of a region
+            </summary>
+            <param name="regionName"> Region name to check </param>
+            <returns> "EXIST" - if the region exists and "NOT EXIST" otherwise </returns>
+        </member>
+        <member name="T:TestTask.Domain.Concrete.CityRepository">
+            <summary>
+            City repository implementing the corresponding interface
+            </summary>
+        </member>
+        <member name="F:TestTask.Domain.Concrete.CityRepository._connectionString">
+            <summary>
+            Database connection string
+            </summary>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.CityRepository.#ctor(System.String)">
+            <summary>
+            Constructor for the city repository
+            </summary>
+            <param name="conn"> Database connection string </param> 
+        </member>
+        <member name="M:TestTask.Domain.Concrete.CityRepository.GetCities">
+            <summary>
+            Retrieves a list of cities from the database
+            </summary>
+            <returns>
+            In the case when the method functions normally, returns a list of cities from database.
+            Otherwise, it displays a debug message and returns null.
+            </returns>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.CityRepository.GetCityById(System.Int32)">
+            <summary>
+            Gets the city from the database by its identifier
+            </summary>
+            <param name="cityId"> Id of the desired city </param>      
+            <returns>
+            In the case when the method functions normally, returns searched city from database.
+            Otherwise, it displays a debug message and returns null.
+            </returns>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.CityRepository.GetCityByName(System.String)">
+            <summary>
+            Gets the city from the database by its name
+            </summary>
+            <param name="cityName"> Name of the desired city </param>       
+            <returns>
+            In the case when the method functions normally, returns searched city from database.
+            Otherwise, it displays a debug message and returns null.
+            </returns>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.CityRepository.AddCity(TestTask.Domain.Entities.City)">
+            <summary>
+            Adds a city to the database
+            </summary>
+            <param name="city"> City to add </param> 
+        </member>
+        <member name="M:TestTask.Domain.Concrete.CityRepository.CheckExistCity(System.String)">
+            <summary>
+            Checks for the presence of a city in the database
+            </summary>
+            <param name="cityName"> City name to check </param>
+            <returns>
+            In the case when the method functions normally, returns 
+            "EXIST" - if the city exists in the database and "NOT EXIST" otherwise.
+            When an exception occurs, it displays a debug message and returns null.
+            </returns>
+        </member>
+        <member name="T:TestTask.Domain.Concrete.CountryRepository">
+            <summary>
+            Country repository implementing the corresponding interface
+            </summary>
+        </member>
+        <member name="F:TestTask.Domain.Concrete.CountryRepository._connectionString">
+            <summary>
+            Database connection string
+            </summary>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.CountryRepository.#ctor(System.String)">
+            <summary>
+            Constructor for the country repository
+            </summary>
+            <param name="conn"> Database connection string </param>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.CountryRepository.GetCountries">
+            <summary>
+            Retrieves a list of countries from the database
+            </summary>
+            <returns>
+            In the case when the method functions normally, returns a list of countries from database.
+            Otherwise, it displays a debug message and returns null.
+            </returns>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.CountryRepository.GetCountryByName(System.String)">
+            <summary>
+            Gets the country from the database by its name
+            </summary>
+            <param name="countryName"> Name of the desired region  </param>
+            <returns>
+            In the case when the method functions normally, returns searched country from database.
+            Otherwise, it displays a debug message and returns null.
+            </returns>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.CountryRepository.AddCountry(TestTask.Domain.Entities.Country,System.String,System.String)">
+            <summary>
+            Adds a country to the database
+            </summary>
+            <param name="country"> Country to add </param>
+            <param name="capitalName"> Capital of this country  </param>
+            <param name="regionName">
+            Region in which this country is located.
+            When an exception occurs, it displays a debug message.
+            </param>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.CountryRepository.UpdateCountry(TestTask.Domain.Entities.Country,System.String,System.String)">
+            <summary>
+            Updates country data in the database
+            </summary>
+            <param name="country"> Country to update </param>
+            <param name="capitalName"> Capital of this country </param>
+            <param name="regionName">
+            Region in which this country is located.
+            When an exception occurs, it displays a debug message.
+            </param>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.CountryRepository.CheckExistCountry(System.String)">
+            <summary>
+            Checks for the presence of a country in the database
+            </summary>
+            <param name="countryCode"> Country code to check </param>
+            <returns>
+            In the case when the method functions normally, returns 
+            "EXIST" - if the country code exists in the database and "NOT EXIST" otherwise.
+            When an exception occurs, it displays a debug message and returns null.
+            </returns>
+        </member>
+        <member name="T:TestTask.Domain.Concrete.RegionRepository">
+            <summary>
+            Region repository implementing the corresponding interface
+            </summary>
+        </member>
+        <member name="F:TestTask.Domain.Concrete.RegionRepository._connectionString">
+            <summary>
+            Database connection string
+            </summary>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.RegionRepository.#ctor(System.String)">
+            <summary>
+            Constructor for the region repository
+            </summary>
+            <param name="conn"> Database connection string </param>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.RegionRepository.GetRegions">
+            <summary>
+            Retrieves a list of regions from the database
+            </summary>
+            <returns>
+            In the case when the method functions normally, returns a list of regions from database.
+            Otherwise, it displays a debug message and returns null.
+            </returns>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.RegionRepository.GetRegionById(System.Int32)">
+            <summary>
+            Gets the region from the database by its identifier
+            </summary>
+            <param name="regionId"> Id of the desired region </param>       
+            <returns>
+            In the case when the method functions normally, returns searched region from database.
+            Otherwise, it displays a debug message and returns null.
+            </returns>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.RegionRepository.GetRegionByName(System.String)">
+            <summary>
+            Gets the region from the database by its name
+            </summary>
+            <param name="regionName"> Name of the desired region </param>       
+            <returns>
+            In the case when the method functions normally, returns searched region from database.
+            Otherwise, it displays a debug message and returns null.
+            </returns>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.RegionRepository.AddRegion(TestTask.Domain.Entities.Region)">
+            <summary>
+            Adds a region to the database
+            </summary>
+            <param name="region"> Region to add </param>       
+        </member>
+        <member name="M:TestTask.Domain.Concrete.RegionRepository.CheckExistRegion(System.String)">
+            <summary>
+            Checks for the presence of a region in the database
+            </summary>
+            <param name="regionName"> Region name to check </param>
+            <returns>
+            In the case when the method functions normally, returns 
+            "EXIST" - if the region exists in the database and "NOT EXIST" otherwise.
+            When an exception occurs, it displays a debug message and returns null.
+            </returns>
+        </member>
+        <member name="T:TestTask.Domain.Concrete.TestTaskContext">
+            <summary>
+            Defines the data context used to interact with the database.
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Concrete.TestTaskContext.Countries">
+            <summary>
+            Represents a set of country entities stored in a database
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Concrete.TestTaskContext.Cities">
+            <summary>
+            Represents a set of city entities stored in a database
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Concrete.TestTaskContext.Regions">
+            <summary>
+            Represents a set of region entities stored in a database
+            </summary>
+        </member>
+        <member name="M:TestTask.Domain.Concrete.TestTaskContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{TestTask.Domain.Concrete.TestTaskContext})">
+            <summary>
+            The constructor defines a call to Database.EnsureCreated(),
+            which automatically creates it when there is no database.
+            If the database already exists, then nothing happens.
+            </summary>
+            <param name="options"> Base options (because one type of context) </param>
+        </member>
+        <member name="T:TestTask.Domain.Entities.City">
+            <summary>
+            City entity
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Entities.City.Id">
+            <summary>
+            City identificator
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Entities.City.Name">
+            <summary>
+            City name
+            </summary>
+        </member>
+        <member name="T:TestTask.Domain.Entities.Country">
+            <summary>
+            Country entity
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Entities.Country.Id">
+            <summary>
+            Country identificator
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Entities.Country.Name">
+            <summary>
+            Country name
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Entities.Country.CountryCode">
+            <summary>
+            Country code
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Entities.Country.Area">
+            <summary>
+            Country area
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Entities.Country.Population">
+            <summary>
+            Country population
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Entities.Country.CapitalId">
+            <summary>
+            Capital identificator, primary key in Cities table
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Entities.Country.RegionId">
+            <summary>
+            Region identificator, primary key in Regions table
+            </summary>
+        </member>
+        <member name="T:TestTask.Domain.Entities.Region">
+            <summary>
+            Region entity
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Entities.Region.Id">
+            <summary>
+            Region identificator
+            </summary>
+        </member>
+        <member name="P:TestTask.Domain.Entities.Region.Name">
+            <summary>
+            Region name
+            </summary>
+        </member>
+        <member name="T:TestTask.Domain.ExceptionHandlers.DebugMessage">
+            <summary>
+            Static class for debug
+            </summary>
+        </member>
+        <member name="M:TestTask.Domain.ExceptionHandlers.DebugMessage.ShowMessage(System.String,System.String,System.Exception)">
+            <summary>
+            Shows debug message
+            </summary>
+            <param name="repoName"> Repository name </param>
+            <param name="methodName"> Method name </param>
+            <param name="ex"> An exception which may occur </param>
+        </member>
+    </members>
+</doc>

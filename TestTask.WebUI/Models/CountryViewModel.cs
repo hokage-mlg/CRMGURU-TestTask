@@ -10,14 +10,23 @@ namespace TestTask.WebUI.Models
     /// </summary>
     public class CountryViewModel
     {
+        /// <summary>
+        /// Country entity
+        /// </summary>
         public Country Country { get; set; }
 
+        /// <summary>
+        /// Name of the capital of the country
+        /// </summary>
         [Display(Name = "Capital")]
         [Required(ErrorMessage = "Please, enter capital name.")]
         [RegularExpression(@"^[a-zA-Z][a-zA-Z-()\s]*$",
                             ErrorMessage = "Please enter a valid capital name.")]
         public string CapitalName { get; set; }
 
+        /// <summary>
+        /// Name of the region of the country
+        /// </summary>
         [Display(Name = "Region")]
         [Required(ErrorMessage = "Please, enter region name.")]
         [RegularExpression(@"^[a-zA-Z][a-zA-Z-()\s]*$",

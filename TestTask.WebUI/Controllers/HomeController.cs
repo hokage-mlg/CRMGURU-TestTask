@@ -134,13 +134,17 @@ namespace TestTask.WebUI.Controllers
                 {
                     _countryRepository.UpdateCountry(countryVM.Country, cityDB.Name, regionDB.Name);
                     TempData["successMessage"] = string.Format($"{countryVM.Country.Name} has been successfully updated.");
-                    return View(countryVM);
+                    return RedirectToAction("Index");
                 }
             }
             else
                 return View(countryVM);
         }
 
+        /// <summary>
+        /// Error handler
+        /// </summary>
+        /// <returns> Error view</returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error() => View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
