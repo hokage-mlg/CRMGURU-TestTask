@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Not Found";
+}
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">Sorry it happened...</h1>
+        <hr>
+        <p>
+            Unfortunately, this country was not found. But you can
+            <a asp-controller="Home" asp-action="AddCountry">add information</a>
+            about it to the database.
+        </p>
+        <p>
+            <a class="btn btn-primary" asp-controller="Home" asp-action="SearchPanel">Search more &raquo;</a>
+        </p>
+    </div>
+</div>

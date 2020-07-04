@@ -1,0 +1,51 @@
+﻿@model TestTask.WebUI.Models.CountryViewModel
+@{
+    ViewData["Title"] = "Country Info";
+}
+
+<div>
+    <h4>Information about @Model.Country.Name</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Country.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Country.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Country.CountryCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Country.CountryCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CapitalName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CapitalName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Country.Area)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Country.Area)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Country.Population)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Country.Population)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RegionName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RegionName)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Go back to the main page &raquo;</a>
+</div>

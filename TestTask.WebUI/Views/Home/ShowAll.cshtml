@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TestTask.WebUI.Models.CountryViewModel>
+@{
+    ViewData["Title"] = "Country List";
+}
+
+@if (Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Country.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Country.CountryCode)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CapitalName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Country.Area)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Country.Population)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RegionName)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Country.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Country.CountryCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CapitalName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Country.Area)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Country.Population)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RegionName)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <h1 align="center">The list of countries is empty!</h1>
+}
+
+<br />
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Go back to the main page &raquo;</a>
+</div>
