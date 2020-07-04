@@ -113,7 +113,6 @@ And of course, don't forget to install the necessary packages using the NuGet pa
 
 ## Programming Languages
 
-- JS
 - C#
 - Html and CSS
 - SQL
