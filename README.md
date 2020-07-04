@@ -29,25 +29,80 @@ Hi everyone! I present to you my contest project.
 
 On the main window, the user can select the section of the site he needs: show all countries, find a country by name, add a new country and of course go to the main page. Thus, the main window on the desktop computer looks like this:
 
+<p align="center">
+<img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/MainPage.PNG">
+</p>
+
 This image shows what the list of all countries looks like:
+
+<p align="center">
+<img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/CountryList.PNG">
+</p>
 
 This image shows how the country search bar by name looks:
 
+<p align="center">
+<img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/SearchPanel.PNG">
+</p>
+
 In the case when this country is not in the list, the user can see the corresponding message:
+
+<p align="center">
+<img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/NotFound.PNG">
+</p>
 
 The page for adding a country is as follows:
 
+<p align="center">
+<img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/AddCountry.PNG">
+</p>
+
 Also, this application is fully adapted for all modern smartphones. The same page, but already on the screen of the Pixel 2 phone:
+
+<p align="center">
+<img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/AddCountryMobile.PNG">
+</p>
 
 Application validates input:
 
+<p align="center">
+<img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/ValidationMsg.PNG">
+</p>
+
 Country Add Success Message:
+
+<p align="center">
+<img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/SuccessAddMsg.PNG">
+</p>
 
 Search for a newly added country:
 
+<p align="center">
+<img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/SearchNewCountry.PNG">
+</p>
+
 Now update the information about the country, change the name of the capital and population:
 
+<p align="center">
+<img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/UpdateCountry.PNG">
+</p>
+
 Now the new list of all countries is as follows:
+
+<p align="center">
+<img src="https://github.com/hokage-mlg/CRMGURU-TestTask/blob/master/Screenshots/NewCountryList.PNG">
+</p>
+
+## Instructions
+
+You need to change the connection string in the **appsettings.json** (*located at **TestTask.WebUI***) file to your own:
+
+```json
+ "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=testTaskDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+  },
+```
+And of course, don't forget to install the necessary packages using the NuGet package manager, they are indicated in the technology section.
 
 ## Folder Description
 
