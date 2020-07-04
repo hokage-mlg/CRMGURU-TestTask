@@ -1,5 +1,3 @@
-# CRMGURU-TestTask
-The task which I have done for CRMGURU.
 # Test task for CRMguru via **ASP.NET Core MVC**
 > Language: English.
 
@@ -27,6 +25,30 @@ Hi everyone! I present to you my contest project.
 
 *3. При выборе вывода всех стран БД должен вывестись список всех стран в БД со следующими полями: Название, Код страны, Столица, Площадь, Население, Регион. Прошу обратить внимание, что Столицу и Регион тут нужно выводить название.*
 
+## Description
+
+On the main window, the user can select the section of the site he needs: show all countries, find a country by name, add a new country and of course go to the main page. Thus, the main window on the desktop computer looks like this:
+
+This image shows what the list of all countries looks like:
+
+This image shows how the country search bar by name looks:
+
+In the case when this country is not in the list, the user can see the corresponding message:
+
+The page for adding a country is as follows:
+
+Also, this application is fully adapted for all modern smartphones. The same page, but already on the screen of the Pixel 2 phone:
+
+Application validates input:
+
+Country Add Success Message:
+
+Search for a newly added country:
+
+Now update the information about the country, change the name of the capital and population:
+
+Now the new list of all countries is as follows:
+
 ## Folder Description
 
 - **BackedUpDatabase** - Database backup folder
@@ -40,6 +62,17 @@ Hi everyone! I present to you my contest project.
 - C#
 - Html and CSS
 - SQL
+
+## Technology
+
+- bootstrap
+- FontAwesome
+- Dapper
+- jQuery
+- Microsoft.AspNetCore.Mvc
+- Microsoft.EntityFrameworkCore
+- System.Data.SqlClient
+- Microsoft.VisualStudio.Web.CodeGeneration.Design
 
 ## Architecture
 
