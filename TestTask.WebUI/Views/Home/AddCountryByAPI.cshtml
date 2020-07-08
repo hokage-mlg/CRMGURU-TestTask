@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Add via API";
+}
+@if (TempData["errorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["errorMessage"]</div>
+}
+<form method="post">
+    <div class="container h-100">
+        <div class="d-flex justify-content-center h-100">
+            <div class="searchbar">
+                <input class="search_input" type="url" name="url" placeholder="Input country API url" style="width:230px">
+                <button type="submit" class="btn" style="color:dodgerblue"><i class="fas fa-arrow-circle-up"></i></button>
+            </div>
+        </div>
+    </div>
+</form>

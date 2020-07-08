@@ -5,6 +5,5 @@ D:\Studying\TestTasks\CRMGuru\TestTask.Domain\obj\Debug\netcoreapp3.1\TestTask.D
 D:\Studying\TestTasks\CRMGuru\TestTask.Domain\bin\Debug\netcoreapp3.1\TestTask.Domain.pdb
 D:\Studying\TestTasks\CRMGuru\TestTask.Domain\obj\Debug\netcoreapp3.1\TestTask.Domain.dll
 D:\Studying\TestTasks\CRMGuru\TestTask.Domain\obj\Debug\netcoreapp3.1\TestTask.Domain.pdb
-D:\Studying\TestTasks\CRMGuru\TestTask.Domain\obj\Debug\netcoreapp3.1\TestTask.Domain.csproj.CoreCompileInputs.cache
 D:\Studying\TestTasks\CRMGuru\TestTask.Domain\bin\Debug\netcoreapp3.1\TestTask.Domain.xml
-D:\Studying\TestTasks\CRMGuru\TestTask.Domain\obj\Debug\netcoreapp3.1\TestTask.Domain.csprojAssemblyReference.cache
+D:\Studying\TestTasks\CRMGuru\TestTask.Domain\obj\Debug\netcoreapp3.1\TestTask.Domain.csproj.CoreCompileInputs.cache

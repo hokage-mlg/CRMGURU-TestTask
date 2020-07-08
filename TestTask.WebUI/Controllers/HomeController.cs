@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using TestTask.WebUI.Models;
 using TestTask.Domain.Abstract;
 using TestTask.Domain.Entities;
+using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace TestTask.WebUI.Controllers
 {
@@ -87,6 +89,56 @@ namespace TestTask.WebUI.Controllers
             }
         }
         /// <summary>
+        /// Page with panel for searching countries by name via url with API
+        /// </summary>
+        /// <returns> View of search panel </returns>
+        [Route("SearchAPI")]
+        public IActionResult SearchPanelAPI() => View();
+        /// <summary>
+        /// Post version of page with panel for searching countries by name via url with API
+        /// </summary>
+        /// <param name="url"> url with country data API </param>
+        /// <returns> 
+        /// If a country exists in the database, returns information about it,
+        /// otherwise returns a page with a failure message and a proposal to add a country.
+        /// </returns>
+        [Route("SearchAPI")]
+        [HttpPost]
+        public IActionResult SearchPanelAPI(string url)
+        {
+            try
+            {
+                using (var wc = new WebClient())
+                {
+                    var json = wc.DownloadString(url);
+                    if (json != null)
+                    {
+                        var dataObj = JArray.Parse(json);
+                        var country = _countryRepository.GetCountryByName($"{dataObj[0]["name"].Value<string>()}");
+                        if (country == null)
+                            return View("NotFoundAPI");
+                        else
+                        {
+                            var coutryVM = new CountryViewModel
+                            {
+                                Country = country,
+                                CapitalName = _cityRepository.GetCityById(country.CapitalId).Name,
+                                RegionName = _regionRepository.GetRegionById(country.RegionId).Name
+                            };
+                            return View("CountryInfo", coutryVM);
+                        }
+                    }
+                    else
+                        return View("NotFoundAPI");
+                };
+            }
+            catch
+            {
+                TempData["errorMessage"] = string.Format("Invalid link. Try again.");
+                return View();
+            }
+        }
+        /// <summary>
         /// Page with form for adding the country
         /// </summary>
         /// <returns> View of form for adding the country </returns>
@@ -140,7 +192,98 @@ namespace TestTask.WebUI.Controllers
             else
                 return View(countryVM);
         }
-
+        /// <summary>
+        /// Page with form for adding the country via API url
+        /// </summary>
+        /// <returns> View of panel for adding the country url API </returns>
+        [Route("AddAPI")]
+        public IActionResult AddCountryByAPI() => View();
+        /// <summary>
+        /// Post version of page with form for adding the country.
+        /// </summary>
+        /// <param name="url"> url with API </param>
+        /// <returns>
+        /// If successful, adds or updates the country and redirects to the main page.
+        /// In case of failure returns the same page in order to correct or
+        /// supplement the data necessary to add the country.
+        /// </returns>
+        [Route("AddAPI")]
+        [HttpPost]
+        public IActionResult AddCountryByAPI(string url)
+        {
+            try
+            {
+                using (var wc = new WebClient())
+                {
+                    var json = wc.DownloadString(url);
+                    if (json != null)
+                    {
+                        var dataObj = JArray.Parse(json);
+                        City cityDB;
+                        Region regionDB;
+                        var capitalName = $"{dataObj[0]["capital"].Value<string>()}";
+                        var regionName = $"{dataObj[0]["region"].Value<string>()}";
+                        var countryCode = $"{dataObj[0]["alpha3Code"].Value<string>()}";
+                        var countryName = $"{dataObj[0]["name"].Value<string>()}";
+                        var countryPopulation = dataObj[0]["population"].Value<int>();
+                        var countryArea = dataObj[0]["area"].Value<double>();
+                        if (_cityRepository.CheckExistCity(capitalName) == "EXIST")
+                            cityDB = _cityRepository.GetCityByName(capitalName);
+                        else
+                        {
+                            _cityRepository.AddCity(new City { Name = capitalName });
+                            cityDB = _cityRepository.GetCityByName(capitalName);
+                        }
+                        if (_regionRepository.CheckExistRegion(regionName) == "EXIST")
+                            regionDB = _regionRepository.GetRegionByName(regionName);
+                        else
+                        {
+                            _regionRepository.AddRegion(new Region { Name = regionName });
+                            regionDB = _regionRepository.GetRegionByName(regionName);
+                        }
+                        if (_countryRepository.CheckExistCountry(countryCode) == "NOT EXIST")
+                        {
+                            _countryRepository.AddCountry(new Country
+                            {
+                                Name = countryName,
+                                CountryCode = countryCode,
+                                Area = countryArea,
+                                Population = countryPopulation
+                            },
+                            cityDB.Name,
+                            regionDB.Name);
+                            TempData["successMessage"] = string.Format($"{countryName}" +
+                                " has been successfully added to the database.");
+                            return RedirectToAction("Index");
+                        }
+                        else
+                        {
+                            _countryRepository.UpdateCountry(new Country
+                            {
+                                Name = countryName,
+                                CountryCode = countryCode,
+                                Area = countryArea,
+                                Population = countryPopulation
+                            },
+                            cityDB.Name,
+                            regionDB.Name);
+                            TempData["successMessage"] = string.Format($"{countryName} has been successfully updated.");
+                            return RedirectToAction("Index");
+                        }
+                    }
+                    else
+                    {
+                        TempData["errorMessage"] = string.Format("Invalid link. Try again.");
+                        return View();
+                    }
+                };
+            }
+            catch
+            {
+                TempData["errorMessage"] = string.Format("Invalid link. Try again.");
+                return View();
+            }
+        }
         /// <summary>
         /// Error handler
         /// </summary>

@@ -45,6 +45,22 @@
             otherwise returns a page with a failure message and a proposal to add a country.
             </returns>
         </member>
+        <member name="M:TestTask.WebUI.Controllers.HomeController.SearchPanelAPI">
+            <summary>
+            Page with panel for searching countries by name via url with API
+            </summary>
+            <returns> View of search panel </returns>
+        </member>
+        <member name="M:TestTask.WebUI.Controllers.HomeController.SearchPanelAPI(System.String)">
+            <summary>
+            Post version of page with panel for searching countries by name via url with API
+            </summary>
+            <param name="url"> url with country data API </param>
+            <returns> 
+            If a country exists in the database, returns information about it,
+            otherwise returns a page with a failure message and a proposal to add a country.
+            </returns>
+        </member>
         <member name="M:TestTask.WebUI.Controllers.HomeController.AddCountry">
             <summary>
             Page with form for adding the country
@@ -56,6 +72,23 @@
             Post version of page with form for adding the country.
             </summary>
             <param name="countryVM"> Country view model </param>
+            <returns>
+            If successful, adds or updates the country and redirects to the main page.
+            In case of failure returns the same page in order to correct or
+            supplement the data necessary to add the country.
+            </returns>
+        </member>
+        <member name="M:TestTask.WebUI.Controllers.HomeController.AddCountryByAPI">
+            <summary>
+            Page with form for adding the country via API url
+            </summary>
+            <returns> View of panel for adding the country url API </returns>
+        </member>
+        <member name="M:TestTask.WebUI.Controllers.HomeController.AddCountryByAPI(System.String)">
+            <summary>
+            Post version of page with form for adding the country.
+            </summary>
+            <param name="url"> url with API </param>
             <returns>
             If successful, adds or updates the country and redirects to the main page.
             In case of failure returns the same page in order to correct or
